@@ -1255,6 +1255,7 @@ canvas.addEventListener("mouseleave", function() {
 // ==============================
 
 canvas.addEventListener("pointerdown", function(e) {
+
     e.stopPropagation();
 
     const rect = canvas.getBoundingClientRect();
@@ -1270,26 +1271,26 @@ canvas.addEventListener("pointerdown", function(e) {
 
     // Najprv zistíme, či sme klikli na nejakú hviezdu.
     let clickedStar = null;
+let closestDistance = Infinity;
 
-    for (const star of dreamStars) {
+for (const star of dreamStars) {
 
-        const position = getDreamPosition(star);
+    const position = getDreamPosition(star);
 
-        const dx = mouseX - position.x;
-        const dy = mouseY - position.y;
+    const dx = mouseX - position.x;
+    const dy = mouseY - position.y;
 
-        const distance =
-            Math.sqrt(dx * dx + dy * dy);
+    const distance =
+        Math.sqrt(dx * dx + dy * dy);
 
-        if (distance <= 35) {
-
-            clickedStar = star;
-            break;
-
-        }
-
+    if (
+        distance <= 35 &&
+        distance < closestDistance
+    ) {
+        clickedStar = star;
+        closestDistance = distance;
     }
-
+}
 
     // Ak sme klikli na hviezdu,
     // otvoríme jej sen.
