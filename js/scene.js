@@ -1255,8 +1255,6 @@ canvas.addEventListener("mouseleave", function() {
 // ==============================
 
 canvas.addEventListener("pointerdown", function(e) {
-
-    e.preventDefault();
     e.stopPropagation();
 
     const rect = canvas.getBoundingClientRect();
