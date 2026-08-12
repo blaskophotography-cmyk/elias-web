@@ -538,16 +538,66 @@ function getDreamPosition(star) {
     let y = star.y * canvas.height;
 
     if (window.innerWidth <= 600) {
-
         y = canvas.height * (
             0.52 + star.y * 0.42
         );
+    }
 
+    // Prevod pozície canvasu na pozíciu na obrazovke
+    const rect = canvas.getBoundingClientRect();
+
+    const screenX =
+        rect.left + (x / canvas.width) * rect.width;
+
+    const screenY =
+        rect.top + (y / canvas.height) * rect.height;
+
+    // Miesta, kam nechceme umiestňovať sny
+    const blockedIds = [
+        "question",
+        "openForm",
+        "logo",
+        "release",
+        "timer"
+    ];
+
+    let blocked = false;
+
+    for (const id of blockedIds) {
+
+        const element = document.getElementById(id);
+
+        if (!element) continue;
+
+        const r = element.getBoundingClientRect();
+
+        if (
+            screenX >= r.left - 35 &&
+            screenX <= r.right + 35 &&
+            screenY >= r.top - 35 &&
+            screenY <= r.bottom + 35
+        ) {
+            blocked = true;
+            break;
+        }
+    }
+
+    // Ak je sen pod textom/logom,
+    // presunieme ho do voľnej spodnej časti oblohy.
+    if (blocked) {
+
+        x = canvas.width * (
+            0.10 + ((star.x * 13.731) % 1) * 0.80
+        );
+
+        y = canvas.height * (
+            0.52 + ((star.y * 17.421) % 1) * 0.30
+        );
     }
 
     return { x, y };
-
 }
+
 
 
 function drawDreamStars(){
