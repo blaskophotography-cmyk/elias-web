@@ -1,0 +1,1862 @@
+/* ==========================================
+   RESET
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+   background:
+    linear-gradient(
+        to bottom,
+        #010205 0%,
+        #020611 18%,
+        #06111f 42%,
+        #182d45 70%,
+        #31445a 100%
+    );
+        
+
+    font-family:"Cormorant Garamond",serif;
+}
+
+/* ==========================================
+   SCENE
+========================================== */
+
+#scene{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    display:block;
+#scene{
+    left:0;
+    top:0;
+    margin:0;
+    padding:0;
+}
+}
+#scene{
+    background:transparent;
+}
+/* ==========================================
+   OVERLAY
+========================================== */
+
+#overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+
+    radial-gradient(
+
+        ellipse at center,
+
+        rgba(255,255,255,.015),
+
+        rgba(0,0,0,.20),
+
+        rgba(0,0,0,.55)
+
+    ),
+
+    linear-gradient(
+
+        to bottom,
+
+        rgba(0,0,0,.05),
+
+        rgba(0,0,0,.08),
+
+        rgba(0,0,0,.35)
+
+    );
+
+}
+
+/* ==========================================
+   INTRO
+========================================== */
+
+#intro{
+
+    position:absolute;
+
+    left:50%;
+    top:40%;
+
+    transform:translate(-50%,-50%);
+
+    width:min(900px,90%);
+
+    text-align:center;
+
+    z-index:20;
+
+    transition:opacity .8s;
+
+}
+
+#question{
+    color:#f3f5f7;
+    font-size:64px;
+    font-weight:300;
+    line-height:1.2;
+
+    text-shadow:
+        0 0 30px rgba(255,255,255,.08);
+
+    opacity:0;
+    filter:blur(8px);
+    transform:translateY(10px);
+
+    animation:
+        questionReveal 1.5s ease-out forwards;
+}
+
+
+/* ==========================================
+   POMALÉ VYNORENIE ÚVODNÉHO TEXTU
+========================================== */
+
+@keyframes questionReveal{
+
+    0%{
+
+        opacity:0;
+
+        filter:blur(8px);
+
+        transform:translateY(10px);
+
+    }
+
+    35%{
+
+        opacity:.18;
+
+        filter:blur(5px);
+
+        transform:translateY(5px);
+
+    }
+
+    70%{
+
+        opacity:.72;
+
+        filter:blur(2px);
+
+        transform:translateY(1px);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        filter:blur(0);
+
+        transform:translateY(0);
+
+    }
+
+}
+
+#hint{
+
+    margin-top:45px;
+
+    color:rgba(255,255,255,.45);
+
+    font-size:20px;
+
+    letter-spacing:2px;
+
+    opacity:0;
+
+    transition:opacity 1.5s;
+
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+#footer{
+    position:fixed;
+    left:50%;
+    bottom:35px;
+    transform:translateX(-50%);
+    text-align:center;
+    color:white;
+    z-index:20;
+    transition:opacity .8s;
+}
+
+#logo{
+    width:180px;
+    height:90px;
+    margin:0 auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#logo img{
+    display:block;
+    width:180px;
+    height:90px;
+    max-width:none;
+    max-height:none;
+    object-fit:contain;
+    transform:translateY(55px);
+}
+
+#release{
+    margin-top:8px;
+    margin-bottom:10px;
+    opacity:.55;
+    font-size:18px;
+    letter-spacing:8px;
+}
+
+#timer{
+    opacity:.40;
+    font-size:17px;
+    letter-spacing:3px;
+}
+#timer{
+
+    opacity:.40;
+
+    font-size:17px;
+
+    letter-spacing:3px;
+
+}
+
+/* ==========================================
+   DREAM FORM
+========================================== */
+
+#dreamForm{
+
+    position:fixed;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%) scale(.95);
+
+    width:min(640px,90%);
+
+    padding:42px;
+
+    border-radius:22px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:rgba(10,15,24,.38);
+
+    backdrop-filter:blur(18px);
+
+    z-index:200;
+
+    transition:
+
+        opacity .7s,
+
+        transform .7s;
+
+}
+
+#dreamForm.hidden{
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transform:translate(-50%,-50%) scale(.92);
+
+}
+
+#dreamForm:not(.hidden){
+
+    opacity:1;
+
+    transform:translate(-50%,-50%) scale(1);
+
+}
+
+#dreamForm h2{
+
+    color:white;
+
+    text-align:center;
+
+    font-size:42px;
+
+    font-weight:300;
+
+    margin-bottom:30px;
+
+}
+
+#dreamForm input,
+#dreamForm textarea{
+
+    width:100%;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:white;
+
+    border-radius:12px;
+
+    padding:18px;
+
+    margin-bottom:18px;
+
+    font-size:18px;
+
+    font-family:inherit;
+
+}
+
+#dreamForm textarea{
+
+    resize:none;
+
+    height:170px;
+
+}
+
+#dreamForm input::placeholder,
+#dreamForm textarea::placeholder{
+
+    color:rgba(255,255,255,.40);
+
+}
+
+#sendDream{
+
+    display:block;
+
+    margin:auto;
+
+    padding:16px 36px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:white;
+
+    color:black;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    font-family:inherit;
+
+    transition:.35s;
+
+}
+
+#sendDream:hover{
+
+    transform:scale(1.05);
+
+}
+
+/* ==========================================
+   THANKS
+========================================== */
+
+#thanks{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:250;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transition:opacity .8s;
+
+}
+
+#thanks:not(.hidden){
+
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
+
+}
+
+.thanks-text{
+
+    color:white;
+
+    font-size:42px;
+
+    text-align:center;
+
+    line-height:1.4;
+
+}
+
+.backToSky{
+
+    margin-top:40px;
+
+    color:rgba(255,255,255,.65);
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    letter-spacing:2px;
+
+    transition:.3s;
+
+}
+
+.backToSky:hover{
+
+    color:white;
+
+    letter-spacing:4px;
+
+}
+/* ==========================================
+   FADE
+========================================== */
+
+.fadeOut{
+
+    opacity:0!important;
+
+}
+
+.fadeIn{
+
+    opacity:1!important;
+
+}
+
+canvas{
+
+    filter:
+
+    contrast(108%)
+
+    brightness(.96)
+
+    saturate(110%);
+
+}
+#openForm{
+    margin-top:45px;
+    background:none;
+    border:none;
+    color:rgba(255,255,255,.72);
+    font-family:"Cormorant Garamond",serif;
+    font-size:20px;
+    letter-spacing:1px;
+    cursor:pointer;
+    opacity:0;
+    transform:translateY(10px);
+    animation:none;
+    transition:.35s;
+}
+
+body.scene-ready #openForm{
+    animation:buttonReveal 1s ease-out 1.5s forwards;
+}
+
+
+@keyframes buttonReveal{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(10px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+#openForm:hover{
+
+    color:white;
+
+    transform:scale(1.04);
+
+    text-shadow:
+        0 0 18px
+        rgba(255,255,255,.35);
+
+}
+/* ======================================
+   DREAM SCENE
+====================================== */
+
+
+
+@keyframes dreamFade{
+
+    from{
+
+        opacity:0;
+        transform:translateY(18px) scale(.94);
+        filter:blur(7px);
+
+    }
+
+    60%{
+
+        opacity:1;
+        transform:translateY(-2px) scale(1.01);
+        filter:blur(0);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0) scale(1);
+        filter:blur(0);
+
+    }
+
+}
+
+/* ==========================================
+   DREAM CARD
+========================================== */
+
+#dreamPopup{
+
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(4,8,15,.18);
+
+backdrop-filter:blur(4px);
+
+    opacity:1;
+
+    transition:opacity .45s;
+
+    z-index:9999;
+
+    transition:
+    opacity .35s ease,
+    backdrop-filter .35s ease;
+
+}
+
+
+
+#dreamPopup.hidden{
+
+    opacity:0;
+    pointer-events:none;
+
+}
+
+#dreamCard{
+
+    position:relative;
+
+    width:min(560px,87vw);
+
+    padding:50px;
+
+    border-radius:30px;
+
+    background:rgba(12,18,28,.55);
+
+    backdrop-filter:blur(35px);
+    -webkit-backdrop-filter:blur(35px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 30px 120px rgba(0,0,0,.55),
+        inset 0 1px rgba(255,255,255,.08);
+
+    text-align:center;
+
+    overflow:hidden;
+
+animation:dreamFade .7s cubic-bezier(.22,1,.36,1);
+}
+
+#dreamCard::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:600px;
+    height:600px;
+
+    left:50%;
+    top:-420px;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+
+        circle,
+
+        rgba(255,255,255,.18),
+
+        rgba(120,170,255,.05),
+
+        transparent 70%
+
+    );
+
+}
+
+#dreamCard::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:30px;
+
+    border:1px solid rgba(255,255,255,.05);
+
+    pointer-events:none;
+
+}
+
+#dreamPopupText{
+
+    color:white;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:47px;
+
+    font-weight:300;
+
+    line-height:1.35;
+
+    text-shadow:
+        0 0 25px rgba(255,255,255,.08);
+
+}
+
+#dreamPopupAuthor{
+
+    margin-top:35px;
+
+    color:rgba(255,255,255,.60);
+
+    font-size:24px;
+
+    letter-spacing:2px;
+
+}
+
+.dreamStar{
+
+    font-size:30px;
+
+    color:white;
+
+    margin-bottom:25px;
+
+    opacity:.9;
+
+}
+
+.dreamDivider{
+
+    width:120px;
+
+    height:1px;
+
+    margin:35px auto;
+
+    background:linear-gradient(
+        to right,
+        transparent,
+        rgba(255,255,255,.30),
+        transparent
+    );
+
+}
+
+/* ==========================================
+   NÁVRAT Z FORMULÁRA
+========================================== */
+
+#backFromForm{
+
+    margin-top:28px;
+
+    text-align:center;
+
+    color:rgba(255,255,255,.42);
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:18px;
+
+    letter-spacing:1px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+#backFromForm:hover{
+
+    color:rgba(255,255,255,.85);
+
+    transform:translateY(-1px);
+
+}
+
+/* ==========================================
+   MOBIL — ELIÁŠ
+========================================== */
+
+@media (max-width:600px){
+
+    /* --------------------------------------
+       HLAVNÁ SCÉNA
+    -------------------------------------- */
+
+    #intro{
+
+        top:34%;
+
+        left:50%;
+
+        width:88%;
+
+        transform:translate(-50%,-50%);
+
+    }
+
+
+    /* --------------------------------------
+       HLAVNÁ OTÁZKA
+    -------------------------------------- */
+
+    #question{
+
+        font-size:36px;
+
+        line-height:1.18;
+
+        letter-spacing:0;
+
+        text-shadow:
+            0 0 25px rgba(255,255,255,.08);
+
+    }
+
+
+    /* --------------------------------------
+       TLAČIDLO
+    -------------------------------------- */
+
+    #openForm{
+
+        margin-top:28px;
+
+        font-size:18px;
+
+        letter-spacing:.5px;
+
+    }
+
+
+    /* --------------------------------------
+       FOOTER
+    -------------------------------------- */
+
+    #footer{
+
+        bottom:24px;
+
+        width:100%;
+
+    }
+
+
+    #logo{
+
+        font-size:34px;
+
+        letter-spacing:10px;
+
+    }
+
+    #release{
+
+        margin-top:5px;
+
+        margin-bottom:7px;
+
+        font-size:12px;
+
+        letter-spacing:5px;
+
+    }
+
+
+    #timer{
+
+        font-size:13px;
+
+        letter-spacing:2px;
+
+    }
+
+
+    /* --------------------------------------
+       FORMULÁR
+    -------------------------------------- */
+
+    #dreamForm{
+
+        width:90%;
+
+        max-height:86vh;
+
+        overflow-y:auto;
+
+        padding:30px 20px;
+
+        border-radius:20px;
+
+    }
+
+
+    #dreamForm h2{
+
+        font-size:31px;
+
+        line-height:1.2;
+
+        margin-bottom:25px;
+
+    }
+
+
+    #dreamForm input,
+    #dreamForm textarea{
+
+        font-size:17px;
+
+        padding:15px;
+
+    }
+
+
+    #dreamForm textarea{
+
+        height:145px;
+
+    }
+
+
+    #sendDream{
+
+        font-size:17px;
+
+        padding:14px 28px;
+
+    }
+
+
+    #backFromForm{
+
+        margin-top:24px;
+
+        font-size:17px;
+
+    }
+
+
+    /* --------------------------------------
+       POĎAKOVANIE
+    -------------------------------------- */
+
+    .thanks-text{
+
+        width:88%;
+
+        font-size:30px;
+
+        line-height:1.35;
+
+    }
+
+
+    .backToSky{
+
+        width:85%;
+
+        margin-top:28px;
+
+        font-size:18px;
+
+        line-height:1.4;
+
+    }
+
+
+    /* --------------------------------------
+       POPUP SNA
+    -------------------------------------- */
+
+    #dreamPopup{
+
+        padding:18px;
+
+    }
+
+
+    #dreamCard{
+
+        width:92vw;
+
+        padding:48px 22px 42px;
+
+        border-radius:24px;
+
+    }
+
+
+    #dreamPopupText{
+
+        font-size:32px;
+
+        line-height:1.35;
+
+    }
+
+
+    #dreamPopupAuthor{
+
+        margin-top:26px;
+
+        font-size:18px;
+
+    }
+
+
+    #dreamPopupHint{
+
+        margin-top:42px;
+
+        font-size:10px;
+
+        letter-spacing:2.5px;
+
+    }
+
+}/* ==========================================
+   11.11. ODHODLANIE / ODHALENIE
+========================================== */
+
+#reveal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:500;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(15,25,45,.92),
+            rgba(2,4,8,.98)
+        );
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transition:
+        opacity 2s ease,
+        visibility 2s ease;
+
+}
+
+
+#reveal.visible{
+
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
+
+}
+
+
+#revealContent{
+
+    text-align:center;
+
+    width:90%;
+
+    max-width:800px;
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+}
+
+
+#reveal.visible #revealContent{
+
+    animation:
+        revealContentIn 2.5s ease forwards;
+
+}
+
+
+#revealTitle{
+
+    color:white;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(55px,8vw,100px);
+
+    letter-spacing:
+        12px;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+#revealText{
+
+    margin-top:25px;
+
+    color:
+        rgba(255,255,255,.65);
+
+    font-size:24px;
+
+    letter-spacing:2px;
+
+}
+
+
+@keyframes revealContentIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}/* ==========================================
+   PREVENCIA ÚVODNÉHO PREBLIKNUTIA
+========================================== */
+
+html,
+body {
+    visibility: hidden;
+}
+
+body.scene-ready {
+    visibility: visible;
+}
+
+/* ==========================================
+   FINÁLNA POZÍCIA LOGA
+========================================== */
+
+#footer{
+    bottom:55px;
+}
+
+#logo{
+    width:180px;
+    height:80px;
+    margin:0 auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#logo img{
+    display:block;
+    width:180px;
+    height:auto;
+    max-width:none;
+    max-height:none;
+    object-fit:contain;
+    transform:none;
+}
+
+#release{
+    margin-top:4px;
+    margin-bottom:8px;
+}
+/* ==========================================
+   E-MAIL
+========================================== */
+
+#emailSignup{
+
+    position:fixed;
+
+    left:50%;
+    bottom:35px;
+
+    transform:translateX(-50%);
+
+    width:min(560px,90%);
+
+    text-align:center;
+
+    z-index:30;
+
+    color:white;
+
+    opacity:.85;
+
+}
+
+#emailSignup h2{
+
+    font-size:34px;
+    font-weight:300;
+
+    margin-bottom:18px;
+
+}
+
+#emailSignup p{
+
+    color:rgba(255,255,255,.60);
+
+    font-size:19px;
+    line-height:1.5;
+
+    margin-bottom:25px;
+
+}
+
+#emailAddress{
+
+    width:100%;
+
+    padding:15px 18px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:12px;
+
+    color:white;
+
+    font-family:inherit;
+    font-size:17px;
+
+    outline:none;
+
+    text-align:center;
+
+    margin-bottom:15px;
+
+}
+
+#emailAddress::placeholder{
+
+    color:rgba(255,255,255,.35);
+
+}
+
+#emailAddress:focus{
+
+    border-color:rgba(255,255,255,.25);
+
+}
+
+#emailSubscribe{
+
+    background:none;
+
+    border:none;
+
+    color:rgba(255,255,255,.72);
+
+    font-family:inherit;
+
+    font-size:19px;
+
+    letter-spacing:1px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+#emailSubscribe:hover{
+
+    color:white;
+
+    transform:scale(1.04);
+
+}
+
+#emailNote{
+
+    margin-top:18px;
+
+    color:rgba(255,255,255,.30);
+
+    font-size:14px;
+
+    letter-spacing:.5px;
+
+}
+#emailSignup.hidden{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+#emailSignup:not(.hidden){
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+/* ==========================================
+   E-MAIL SIGNUP
+========================================== */
+
+#emailSignup{
+    position:fixed;
+    inset:0;
+    
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    z-index:250;
+
+    color:white;
+
+    opacity:1;
+    visibility:visible;
+
+    transition:opacity .8s;
+}
+
+#emailSignup.hidden{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+#emailSignup h2{
+    font-size:42px;
+    font-weight:300;
+    margin-bottom:22px;
+}
+
+#emailSignup p{
+    color:rgba(255,255,255,.60);
+    font-size:21px;
+    line-height:1.5;
+    margin-bottom:28px;
+}
+
+#emailAddress{
+    width:min(560px,85%);
+    padding:16px 20px;
+
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:12px;
+
+    color:white;
+    font-family:inherit;
+    font-size:18px;
+
+    text-align:center;
+    outline:none;
+
+    margin-bottom:18px;
+}
+
+#emailAddress::placeholder{
+    color:rgba(255,255,255,.35);
+}
+
+#emailSubscribe{
+    background:none;
+    border:none;
+
+    color:rgba(255,255,255,.72);
+
+    font-family:inherit;
+    font-size:20px;
+    letter-spacing:1px;
+
+    cursor:pointer;
+
+    transition:.35s;
+}
+
+#emailSubscribe:hover{
+    color:white;
+}
+
+#emailNote{
+    margin-top:20px;
+
+    color:rgba(255,255,255,.30);
+
+    font-size:15px;
+}
+
+#emailBackToSky{
+    margin-top:40px;
+}
+
+/* ==========================================
+   EMAIL SIGNUP - FINÁLNA VERZIA
+========================================== */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#emailSignup {
+    position: fixed !important;
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    box-sizing: border-box;
+
+    margin: 0 !important;
+    padding: 30px !important;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    transform: none !important;
+
+    z-index: 300;
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+}
+
+/* SKRYTÝ EMAIL */
+#emailSignup.hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/* NADPIS */
+
+#emailSignup h2 {
+    margin: 0 0 20px 0;
+
+    color: white;
+
+    font-size: 42px;
+    font-weight: 300;
+}
+
+/* TEXT */
+
+#emailSignup p {
+    margin: 0 0 28px 0;
+
+    color: rgba(255,255,255,.60);
+
+    font-size: 21px;
+    line-height: 1.5;
+}
+
+/* EMAIL */
+
+#emailAddress {
+    width: min(680px, 90vw);
+
+    margin: 0 auto 18px auto;
+    padding: 16px 20px;
+
+    box-sizing: border-box;
+
+    background: rgba(255,255,255,.05);
+
+    border: 1px solid rgba(255,255,255,.18);
+
+    border-radius: 15px;
+
+    color: white;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 19px;
+
+    text-align: center;
+
+    outline: none;
+}
+
+/* TLAČIDLO */
+
+#emailSubscribe {
+    display: block;
+
+    margin: 0 auto;
+
+    background: none;
+    border: none;
+
+    color: rgba(255,255,255,.78);
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 21px;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+#emailSubscribe:hover {
+    color: white;
+}
+
+/* POZNÁMKA */
+
+#emailNote {
+    margin-top: 20px;
+
+    color: rgba(255,255,255,.30);
+
+    font-size: 15px;
+}
+
+/* SPÄŤ */
+
+#emailBackToSky {
+    display: block;
+
+    margin: 40px auto 0;
+
+    padding: 0;
+
+    background: none;
+    border: none;
+
+    color: rgba(255,255,255,.50);
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+#emailBackToSky:hover {
+    color: white;
+}
+
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    overflow: hidden !important;
+}
+
+#scene,
+#overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* ==========================================
+   EMAIL THANKS
+========================================== */
+
+#emailThanks {
+    position: fixed;
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    z-index: 310;
+
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity .7s ease,
+        visibility .7s ease;
+}
+
+#emailThanks.hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+
+.email-thanks-title {
+
+    color: white;
+
+    font-size: 42px;
+
+    font-weight: 300;
+
+    margin-bottom: 18px;
+}
+
+
+.email-thanks-text {
+
+    color: rgba(255,255,255,.55);
+
+    font-size: 21px;
+
+    line-height: 1.5;
+
+    margin-bottom: 35px;
+}
+
+
+#emailThanksBack {
+
+    background: none;
+
+    border: none;
+
+    padding: 0;
+
+    color: rgba(255,255,255,.50);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition:
+        color .3s ease;
+}
+
+
+#emailThanksBack:hover {
+
+    color: white;
+
+}
+
+/* ==========================================
+   GLASS POPUP SNA
+========================================== */
+
+#dreamPopup {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(2, 7, 17, 0.28);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    animation: dreamPopupFade 0.45s ease;
+}
+
+
+/* SKRYTÝ */
+
+#dreamPopup.hidden {
+    display: none;
+}
+
+
+/* SKLENENÝ PRIESTOR */
+
+#dreamPopupContent {
+
+    width: min(650px, 82vw);
+
+    min-height: 280px;
+
+    padding: 65px 55px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(35, 53, 76, 0.30),
+            rgba(8, 20, 36, 0.20)
+        );
+
+    border: 1px solid rgba(210, 225, 240, 0.14);
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.30),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        inset 0 0 60px rgba(120, 150, 190, 0.025);
+}
+
+
+/* SEN */
+
+#dreamPopupText {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: clamp(36px, 5vw, 58px);
+
+    font-weight: 400;
+
+    line-height: 1.12;
+
+    color: rgba(250, 248, 242, 0.96);
+
+    letter-spacing: -0.01em;
+
+    margin: 0 0 28px;
+
+    text-shadow:
+        0 2px 18px rgba(0, 0, 0, 0.30);
+}
+
+
+/* AUTOR */
+
+#dreamPopupAuthor {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 24px;
+
+    font-style: italic;
+
+    font-weight: 400;
+
+    color: rgba(235, 235, 228, 0.58);
+
+    margin: 0;
+
+    letter-spacing: 0.02em;
+}
+
+
+/* OBJAVENIE */
+
+@keyframes dreamPopupFade {
+
+    from {
+        opacity: 0;
+        transform: scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+/* MOBIL */
+
+@media (max-width: 600px) {
+
+    #dreamPopupContent {
+
+        width: 88vw;
+
+        min-height: 250px;
+
+        padding: 48px 28px;
+    }
+
+    #dreamPopupText {
+
+        font-size: 36px;
+
+        line-height: 1.15;
+
+        margin-bottom: 22px;
+    }
+
+    #dreamPopupAuthor {
+
+        font-size: 21px;
+    }
+
+}

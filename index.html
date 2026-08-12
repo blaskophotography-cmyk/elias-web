@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ELIÁŠ</title>
+
+    <meta
+        name="description"
+        content="Kam odchádzajú sny, ktoré sme si nikdy nesplnili?"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=IM+Fell+English&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- CANVAS -->
+
+    <canvas id="scene"></canvas>
+
+
+    <!-- FILMOVÝ FILTER -->
+
+    <div id="overlay"></div>
+
+
+    <!-- REVEAL -->
+
+    <div id="reveal">
+
+        <div id="revealContent">
+
+            <!--
+                SEM NESKÔR PRÍDE TITULKA KNIHY
+            -->
+
+            <div id="revealTitle">
+                Eliáš
+            </div>
+
+            <div id="revealText">
+                Príbeh, ktorý čaká na svoje sny.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ÚVOD -->
+
+    <main id="intro">
+
+        <h1 id="question"></h1>
+
+        <button id="openForm">
+
+            ✦ Klikni a pridaj svoj sen
+
+        </button>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer id="footer">
+
+        <div id="logo">
+
+            <img
+                src="elias-logo.png"
+                alt="ELIÁŠ"
+            >
+
+        </div>
+
+        <div id="release">
+
+            11.11.2026
+
+        </div>
+
+        <div id="timer"></div>
+
+    </footer>
+
+
+    <!-- FORMULÁR -->
+
+    <section
+        id="dreamForm"
+        class="hidden"
+    >
+
+        <h2>
+
+            Aký je tvoj nesplnený sen?
+
+        </h2>
+
+
+        <input
+            type="text"
+            id="dreamName"
+            placeholder="Meno (nepovinné)"
+            maxlength="30"
+        >
+
+
+        <textarea
+            id="dreamText"
+            placeholder="Napíš svoj sen..."
+            maxlength="100"
+        ></textarea>
+
+
+        <button id="sendDream">
+
+            Rozsvieť hviezdu
+
+        </button>
+
+
+        <div id="backFromForm">
+
+            ← Vrátiť sa na hviezdnu oblohu
+
+        </div>
+
+    </section>
+
+
+    <!-- POĎAKOVANIE ZA SEN -->
+
+    <section
+        id="thanks"
+        class="hidden"
+    >
+
+        <div class="thanks-text">
+
+            Jeden sen práve našiel svoje miesto na oblohe.
+
+        </div>
+
+    </section>
+
+
+    <!-- EMAIL -->
+
+    <section
+        id="emailSignup"
+        class="hidden"
+    >
+
+        <h2>
+
+            A čo bude ďalej?
+
+        </h2>
+
+
+        <p>
+
+            Ak chceš byť pri tom, keď to zistíme,<br>
+            nechaj nám svoju e-mailovú adresu.
+
+        </p>
+
+
+        <input
+            type="email"
+            id="emailAddress"
+            placeholder="Tvoja e-mailová adresa"
+            autocomplete="email"
+        >
+
+
+        <button id="emailSubscribe">
+
+            Chcem byť pri tom
+
+        </button>
+
+
+        <div id="emailNote">
+
+            Ozveme sa len vtedy, keď bude čo povedať.
+
+        </div>
+
+
+        <button
+            id="emailBackToSky"
+            class="backToSky"
+        >
+
+            Vrátiť sa späť na hviezdnu oblohu →
+
+        </button>
+
+    </section>
+
+
+    <!-- POĎAKOVANIE ZA EMAIL -->
+
+    <section
+        id="emailThanks"
+        class="hidden"
+    >
+
+        <div class="email-thanks-title">
+
+            Budeme pri tom spolu.
+
+        </div>
+
+
+        <div class="email-thanks-text">
+
+            Keď bude čo povedať, ozveme sa.
+
+        </div>
+
+
+        <button
+            id="emailThanksBack"
+            class="backToSky"
+        >
+
+            Vrátiť sa späť na hviezdnu oblohu →
+
+        </button>
+
+    </section>
+
+<!-- POPUP SNA -->
+
+<div id="dreamPopup" class="hidden">
+
+    <div id="dreamPopupContent">
+
+        <div id="dreamPopupText"></div>
+
+        <div id="dreamPopupAuthor"></div>
+
+
+    </div>
+
+</div>
+    <!-- SCRIPTY -->
+
+    <script src="js/countdown.js"></script>
+
+    <script
+        type="module"
+        src="js/firebase.js"
+    ></script>
+
+    <script
+        type="module"
+        src="js/scene.js"
+    ></script>
+
+    <script src="js/main.js"></script>
+
+
+</body>
+
+</html>
