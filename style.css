@@ -133,7 +133,229 @@ body{
         questionReveal 1.5s ease-out forwards;
 }
 
+/* ==========================================
+   NOVÝ HERO
+========================================== */
 
+#intro {
+    position: absolute;
+    left: 50%;
+    top: 42%;
+    transform: translate(-50%, -50%);
+
+    width: min(900px, 90%);
+
+    text-align: center;
+
+    z-index: 20;
+}
+
+
+/* LOGO */
+
+.hero-logo {
+    width: 180px;
+    height: auto;
+
+    margin: 0 auto 22px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-logo img {
+    display: block;
+
+    width: 180px;
+    height: auto;
+
+    max-width: 100%;
+}
+
+
+/* OTÁZKA */
+
+#question {
+    margin: 0;
+
+    color: #f3f5f7;
+
+    font-size: 64px;
+    font-weight: 300;
+
+    line-height: 1.15;
+
+    text-shadow:
+        0 0 30px rgba(255,255,255,.08);
+}
+
+
+/* INFORMÁCIA O KNIHE */
+
+.hero-book {
+    margin: 24px 0 0;
+
+    color: rgba(255,255,255,.68);
+
+    font-size: 21px;
+    font-weight: 300;
+
+    line-height: 1.4;
+}
+
+
+/* TLAČIDLÁ */
+
+.hero-actions {
+    margin-top: 32px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+/* HLAVNÉ TLAČIDLO */
+
+.hero-primary {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 240px;
+
+    padding: 13px 26px;
+
+    border: 1px solid rgba(255,255,255,.25);
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,.07);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 19px;
+
+    letter-spacing: 1px;
+
+    transition: .3s ease;
+}
+
+.hero-primary:hover {
+    background: rgba(255,255,255,.14);
+
+    border-color: rgba(255,255,255,.5);
+}
+
+
+/* PRIDAŤ SEN */
+
+.hero-secondary {
+    margin: 0;
+
+    border: none;
+
+    background: none;
+
+    color: rgba(255,255,255,.55);
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 18px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.hero-secondary:hover {
+    color: white;
+}
+
+
+/* SPODOK */
+
+#footer {
+    position: fixed;
+
+    left: 50%;
+    bottom: 24px;
+
+    transform: translateX(-50%);
+
+    width: auto;
+
+    z-index: 20;
+
+    color: rgba(255,255,255,.42);
+
+    font-size: 15px;
+
+    letter-spacing: 1px;
+}
+
+.hero-scroll {
+    white-space: nowrap;
+}
+
+
+/* MOBIL */
+
+@media (max-width: 600px) {
+
+    #intro {
+        top: 38%;
+        width: 90%;
+    }
+
+    .hero-logo {
+        width: 130px;
+        margin-bottom: 18px;
+    }
+
+    .hero-logo img {
+        width: 130px;
+    }
+
+    #question {
+        font-size: 36px;
+        line-height: 1.18;
+    }
+
+    .hero-book {
+        font-size: 18px;
+        margin-top: 18px;
+    }
+
+    .hero-actions {
+        margin-top: 26px;
+    }
+
+    .hero-primary {
+        min-width: 220px;
+        font-size: 18px;
+    }
+
+    .hero-secondary {
+        font-size: 17px;
+    }
+
+    #footer {
+        bottom: 17px;
+        font-size: 13px;
+    }
+}
 /* ==========================================
    POMALÉ VYNORENIE ÚVODNÉHO TEXTU
 ========================================== */
@@ -1858,4 +2080,522 @@ overflow: auto !important;}
         font-size: 21px;
     }
 
+}
+
+
+
+@keyframes heroArrow {
+
+    0%, 100% {
+        transform: translateY(0);
+        opacity: .4;
+    }
+
+    50% {
+        transform: translateY(5px);
+        opacity: .8;
+    }
+
+}
+
+
+/* ==========================================
+   MOBIL
+========================================== */
+
+@media (max-width: 700px) {
+
+    #intro {
+        width: 92%;
+        top: 42%;
+    }
+
+    .hero-logo {
+        width: 160px;
+        margin-bottom: 18px;
+    }
+
+    .hero-logo img {
+        width: 160px;
+    }
+
+    #question {
+        font-size: 38px;
+        line-height: 1.15;
+    }
+
+    .hero-book {
+        font-size: 18px;
+        margin-top: 19px;
+    }
+
+    .hero-actions {
+        margin-top: 28px;
+    }
+
+    .hero-primary {
+        min-width: 220px;
+        padding: 13px 23px;
+        font-size: 18px;
+    }
+
+    .hero-secondary {
+        font-size: 16px;
+    }
+
+    #footer {
+        bottom: 17px;
+        font-size: 13px;
+    }
+
+}
+
+/* ==========================================
+   HERO – DOLADENIE CTA
+========================================== */
+
+.hero-actions {
+    margin-top: 32px;
+    gap: 8px;
+}
+
+
+/* Pridať svoj sen – výraznejšie */
+
+.hero-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 18px;
+
+    margin: 0 !important;
+
+    border: 1px solid rgba(255,255,255,.18);
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,.035);
+
+    color: rgba(255,255,255,.72);
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 18px;
+
+    letter-spacing: .8px;
+
+    cursor: pointer;
+
+    transition:
+        background .3s ease,
+        border-color .3s ease,
+        color .3s ease,
+        transform .3s ease;
+}
+
+.hero-secondary:hover {
+    background: rgba(255,255,255,.09);
+
+    border-color: rgba(255,255,255,.38);
+
+    color: #fff;
+
+    transform: translateY(-1px);
+}
+
+/* ==========================================
+   ELIÁŠ – FAREBNÝ HERO
+   teplejší / poetickejší / menej monochromatický
+========================================== */
+
+
+/* CELÁ NOČNÁ ATMOSFÉRA */
+
+body {
+    background:
+        radial-gradient(
+            circle at 50% 34%,
+            rgba(91, 67, 128, 0.18) 0%,
+            rgba(42, 55, 96, 0.12) 28%,
+            transparent 58%
+        ),
+        linear-gradient(
+            180deg,
+            #050817 0%,
+            #081226 48%,
+            #17253d 100%
+        );
+}
+
+
+/* JEMNÁ FIALOVÁ / ZLATÁ ŽIARA ZA HERO */
+
+#intro::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 42%;
+
+    width: 720px;
+    height: 420px;
+
+    transform: translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(92, 67, 130, 0.18) 0%,
+            rgba(52, 70, 120, 0.10) 38%,
+            rgba(218, 174, 91, 0.035) 58%,
+            transparent 72%
+        );
+
+    filter: blur(18px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* LOGO – NIE ČISTO BIELE */
+
+.hero-logo img {
+    filter:
+        sepia(12%)
+        saturate(70%)
+        brightness(1.04)
+        drop-shadow(0 0 18px rgba(218,174,91,.10));
+}
+
+
+/* HLAVNÁ OTÁZKA – KRÉMOVÁ */
+
+#question {
+    color: #F2E8D4;
+
+    text-shadow:
+        0 0 24px rgba(242,232,212,.06);
+}
+
+
+/* TEXT O KNIHE */
+
+.hero-book {
+    color: rgba(231,220,198,.72);
+}
+
+
+/* HLAVNÉ CTA – JEMNÝ ZLATÝ AKCENT */
+
+.hero-primary {
+
+    border-color:
+        rgba(218,174,91,.48);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(218,174,91,.12),
+            rgba(218,174,91,.055)
+        );
+
+    color: #F3E7CE;
+
+    box-shadow:
+        0 0 24px rgba(218,174,91,.035);
+}
+
+
+.hero-primary:hover {
+
+    border-color:
+        rgba(231,196,119,.75);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(218,174,91,.19),
+            rgba(218,174,91,.09)
+        );
+
+    box-shadow:
+        0 0 30px rgba(218,174,91,.08);
+}
+
+
+/* PRIDAŤ SVOJ SEN
+   – už nie sivý text */
+
+.hero-secondary {
+
+    color: #D8B96F;
+
+    border-color:
+        rgba(216,185,111,.25);
+
+    background:
+        rgba(216,185,111,.035);
+
+    text-shadow:
+        0 0 12px rgba(216,185,111,.12);
+}
+
+
+.hero-secondary:hover {
+
+    color: #F0D58E;
+
+    border-color:
+        rgba(240,213,142,.45);
+
+    background:
+        rgba(216,185,111,.08);
+
+    box-shadow:
+        0 0 20px rgba(216,185,111,.06);
+}
+
+
+/* HVIEZDY / SPODNÝ TEXT */
+
+#footer {
+    color: rgba(226,211,180,.58);
+}
+
+
+/* ŠÍPKA */
+
+.scroll-arrow {
+    color: #D8B96F;
+
+    text-shadow:
+        0 0 12px rgba(216,185,111,.25);
+}
+
+/* ==========================================
+   SEN – JEMNÝ ŽIVÝ PRVOK
+========================================== */
+
+.hero-secondary {
+    position: relative;
+
+    color: #D8B96F;
+
+    padding: 7px 18px;
+
+    border: 1px solid rgba(216,185,111,.22);
+
+    border-radius: 999px;
+
+    background: rgba(216,185,111,.035);
+
+    font-size: 18px;
+
+    letter-spacing: .7px;
+
+    transition:
+        color .3s ease,
+        background .3s ease,
+        border-color .3s ease,
+        transform .3s ease;
+}
+
+
+/* jemná žiara okolo */
+
+.hero-secondary::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -5px;
+
+    border-radius: 999px;
+
+    background: rgba(216,185,111,.08);
+
+    filter: blur(9px);
+
+    opacity: .25;
+
+    z-index: -1;
+
+    animation: dreamGlow 3s ease-in-out infinite;
+}
+
+
+@keyframes dreamGlow {
+
+    0%, 100% {
+        opacity: .15;
+        transform: scale(.96);
+    }
+
+    50% {
+        opacity: .42;
+        transform: scale(1.02);
+    }
+
+}
+
+
+.hero-secondary:hover {
+
+    color: #F0D58E;
+
+    background: rgba(216,185,111,.09);
+
+    border-color: rgba(240,213,142,.48);
+
+    transform: translateY(-1px);
+}
+
+/* ==========================================
+   FORMULÁR – ODDĚLENIE OD HVIEZDNEJ OBLOHY
+========================================== */
+
+#dreamForm:not(.hidden) {
+    background: rgba(7, 13, 24, .94);
+
+    border-color: rgba(216, 185, 111, .18);
+
+    /*
+       Zakryje canvas aj mimo samotnej karty,
+       takže pod formulárom nebude presvitať kopec.
+    */
+    box-shadow:
+        0 0 0 100vmax rgba(3, 7, 14, .82),
+        0 20px 80px rgba(0,0,0,.35);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+}
+
+
+/* trošku teplejší nadpis */
+
+#dreamForm h2 {
+    color: #F2E8D4;
+}
+
+
+/* vstupy */
+
+#dreamForm input,
+#dreamForm textarea {
+    background: rgba(255,255,255,.045);
+
+    border-color: rgba(255,255,255,.11);
+
+    color: #F2E8D4;
+}
+
+
+/* tlačidlo */
+
+#sendDream {
+    background: #E8D9B5;
+    color: #111722;
+}
+
+
+/* návrat */
+
+#backFromForm {
+    color: rgba(216,185,111,.72);
+}
+
+/* ==========================================
+   DREAM FORM – JEMNÁ PÔVODNÁ VERZIA
+========================================== */
+
+#dreamForm h2 {
+    color: rgba(255,255,255,.92);
+}
+
+
+/* INPUTY */
+
+#dreamForm input,
+#dreamForm textarea {
+    background: rgba(255,255,255,.045);
+
+    border-color: rgba(255,255,255,.09);
+
+    color: rgba(255,255,255,.9);
+}
+
+#dreamForm input::placeholder,
+#dreamForm textarea::placeholder {
+    color: rgba(255,255,255,.38);
+}
+
+
+/* ROZSVIEŤ HVIEZDU */
+
+#sendDream {
+    background: rgba(255,255,255,.96);
+
+    color: #18202c;
+
+    box-shadow:
+        0 5px 25px rgba(255,255,255,.04);
+}
+
+#sendDream:hover {
+    background: #fff;
+
+    transform: scale(1.03);
+
+    box-shadow:
+        0 8px 30px rgba(255,255,255,.08);
+}
+
+
+/* SPÄŤ */
+
+#backFromForm {
+    color: rgba(255,255,255,.58);
+
+    transition:
+        color .3s ease,
+        letter-spacing .3s ease;
+}
+
+#backFromForm:hover {
+    color: rgba(255,255,255,.9);
+}
+
+/* ==========================================
+   VRSTVY – TEXT MUSÍ BYŤ NAD HVIEZDAMI
+========================================== */
+
+#scene {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    pointer-events: auto !important;
+}
+
+#overlay {
+    position: fixed !important;
+    inset: 0 !important;
+
+    z-index: 1 !important;
+
+    pointer-events: none !important;
+}
+
+#intro {
+    position: absolute !important;
+
+    z-index: 20 !important;
+}
+
+#footer {
+    z-index: 20 !important;
 }
