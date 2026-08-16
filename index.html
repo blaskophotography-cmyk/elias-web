@@ -4,13 +4,17 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>ELIÁŠ</title>
 
     <meta
         name="description"
-        content="Kam odchádzajú sny, ktoré sme si nikdy nesplnili?"
+        content="Eliáš – pripravovaná slovenská kniha o chlapcovi, ktorý stretne Zberača."
     >
 
     <link
@@ -39,7 +43,10 @@
 
 <body>
 
-    <!-- CANVAS -->
+
+    <!-- =========================================
+         HVIEZDNA OBLOHA
+    ========================================== -->
 
     <canvas id="scene"></canvas>
 
@@ -49,15 +56,14 @@
     <div id="overlay"></div>
 
 
-    <!-- REVEAL -->
+    <!-- =========================================
+         REVEAL
+         Pôvodná funkcia zostáva zachovaná.
+    ========================================== -->
 
     <div id="reveal">
 
         <div id="revealContent">
-
-            <!--
-                SEM NESKÔR PRÍDE TITULKA KNIHY
-            -->
 
             <div id="revealTitle">
                 Eliáš
@@ -72,26 +78,16 @@
     </div>
 
 
-    <!-- ÚVOD -->
+    <!-- =========================================
+         HERO / ÚVOD
+    ========================================== -->
 
     <main id="intro">
 
-        <h1 id="question"></h1>
 
-        <button id="openForm">
+        <!-- LOGO -->
 
-            ✦ Klikni a pridaj svoj sen
-
-        </button>
-
-    </main>
-
-
-    <!-- FOOTER -->
-
-    <footer id="footer">
-
-        <div id="logo">
+        <div class="hero-logo">
 
             <img
                 src="elias-logo.png"
@@ -100,18 +96,85 @@
 
         </div>
 
-        <div id="release">
 
-            11.11.2026
+        <!-- HLAVNÁ OTÁZKA -->
+
+        <h1 id="question"></h1>
+
+
+        <!-- INFORMÁCIA, ŽE IDE O KNIHU -->
+
+        <p class="hero-book">
+
+Eliáš — príbeh o snoch, ktoré čakajú na svoju noc.
+
+        </p>
+
+
+        <!-- =====================================
+             HLAVNÉ AKCIE
+        ====================================== -->
+
+        <div class="hero-actions">
+
+
+            <!--
+                Zatiaľ pripravené CTA.
+                Keď spustíme crowdfunding,
+                href zmeníme na Donio / StartLab.
+            -->
+
+            <a
+                href="#campaign"
+                id="heroSupport"
+                class="hero-primary"
+            >
+
+                Pomôcť Eliášovi na svet
+
+            </a>
+
+
+            <!-- EXISTUJÚCA FUNKCIA SNY -->
+
+   <button
+    id="openForm"
+    class="hero-secondary"
+>
+    ✦ Pridaj svoj sen na oblohu
+</button>
+
 
         </div>
 
-        <div id="timer"></div>
+
+    </main>
+
+
+    <!-- =========================================
+         SPODNÁ NAVIGÁCIA
+    ========================================== -->
+
+    <footer id="footer">
+
+        <div class="hero-scroll">
+
+            <span>
+                Objavovať svet Eliáša
+            </span>
+
+            <span class="scroll-arrow">
+                ↓
+            </span>
+
+        </div>
 
     </footer>
 
 
-    <!-- FORMULÁR -->
+    <!-- =========================================
+         FORMULÁR – SEN
+    ========================================== -->
 
     <section
         id="dreamForm"
@@ -156,7 +219,9 @@
     </section>
 
 
-    <!-- POĎAKOVANIE ZA SEN -->
+    <!-- =========================================
+         POĎAKOVANIE ZA SEN
+    ========================================== -->
 
     <section
         id="thanks"
@@ -172,7 +237,9 @@
     </section>
 
 
-    <!-- EMAIL -->
+    <!-- =========================================
+         EMAIL SIGNUP
+    ========================================== -->
 
     <section
         id="emailSignup"
@@ -228,7 +295,9 @@
     </section>
 
 
-    <!-- POĎAKOVANIE ZA EMAIL -->
+    <!-- =========================================
+         POĎAKOVANIE ZA EMAIL
+    ========================================== -->
 
     <section
         id="emailThanks"
@@ -260,33 +329,50 @@
 
     </section>
 
-<!-- POPUP SNA -->
 
-<div id="dreamPopup" class="hidden">
+    <!-- =========================================
+         POPUP SNA
+    ========================================== -->
 
-    <div id="dreamPopupContent">
+    <div
+        id="dreamPopup"
+        class="hidden"
+    >
 
-        <div id="dreamPopupText"></div>
+        <div id="dreamPopupContent">
 
-        <div id="dreamPopupAuthor"></div>
+            <div id="dreamPopupText"></div>
 
+            <div id="dreamPopupAuthor"></div>
+
+        </div>
 
     </div>
 
-</div>
-    <!-- SCRIPTY -->
 
-    <script src="js/countdown.js"></script>
+    <!-- =========================================
+         FIREBASE
+    ========================================== -->
 
     <script
         type="module"
         src="js/firebase.js"
     ></script>
 
+
+    <!-- =========================================
+         HVIEZDNA OBLOHA
+    ========================================== -->
+
     <script
         type="module"
         src="js/scene.js"
     ></script>
+
+
+    <!-- =========================================
+         HLAVNÁ LOGIKA
+    ========================================== -->
 
     <script src="js/main.js"></script>
 
